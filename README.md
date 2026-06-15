@@ -1,6 +1,6 @@
 
 
-# Introduction to Version Control
+# Introduction to Version Control Systems
 
 ## Introduction
 
@@ -41,6 +41,17 @@ First you would have to create a free account with [Github](https://github.com).
 
 1. Using the **gh CLI Tool**
 2. Cloning an empty/existing git repository from your github to your local machine.
+
+#### Installing gh cli tool
+
+##### Windows OS
+
+To install the **gh cli tool** on a windows computer you can install using:  
+
+- **Using winget (Windows Package Manager)**  
+```{powershell}
+winget install GitHub.cli
+```
 
 # Introduction to Database Management Tools - SQL/PostgreSQL/MySQL
 
