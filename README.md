@@ -37,7 +37,7 @@ git --help
 
 Before we dive into using other important commands, let's look at how we can connect
  our initialized git repository to github cloud.  
-First you would have to create a free account with ![https://www.github.com](Github). After creating your free github account, there are two ways to connect your locally initialized git repository to Github. Let's explore these options.
+First you would have to create a free account with ![Github](https://github.com). After creating your free github account, there are two ways to connect your locally initialized git repository to Github. Let's explore these options.
 
 1. Using the **gh CLI Tool**
 2. Cloning an empty/existing git repository from your github to your local machine.
