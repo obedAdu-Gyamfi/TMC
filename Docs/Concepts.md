@@ -7,9 +7,9 @@
 Version Control is a tool that tracks and manages changes to files over time, keeping a detailed history of modifications.  
 
 There are two type of version control systems.  
-    - Distributed Version Control System (DVCS): Every collaborator or developer downloads a complete copy of the project, including its full change history.  
+- Distributed Version Control System (DVCS): Every collaborator or developer downloads a complete copy of the project, including its full change history.  
 Example of DVCSs includes **Git, Mercurial,Darcs, etc.**
-    - Centralized Version Control Systme (CVCS): All files and version history are stored in a single central server while developers and collaborators commit pull and commit changes directly to this server.  
+- Centralized Version Control Systme (CVCS): All files and version history are stored in a single central server while developers and collaborators commit pull and commit changes directly to this server.  
 Example of CVCSs inlcudes **Apache Subversion, Concurrent Version Systems (CVS), etc.**
 
 
