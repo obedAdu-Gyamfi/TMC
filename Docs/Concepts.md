@@ -25,11 +25,12 @@ To create a git repository, you'd have to first initialize the repository. `git 
 
 After initializing the repository with Git, you can run a few git commands.
 
-`
+`{git}
 git status  
-git log
-git --help 
-`
+git log  
+git --help   
+`  
+
 `git status` - This command shows the current status of your working directory and staging area.  
 `git log` - Displays a chronological list of all permanent commits made to the repository.
 # Introduction to Database Management Tools - SQL/PostgreSQL/MySQL
