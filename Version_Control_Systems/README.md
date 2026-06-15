@@ -41,7 +41,7 @@ To install git in windows,
 1. Open the windows command prompt or powershell
 2. Type the following commands and press Enter
 ```{git}
-
+ 
 git --version
 ```
 if successful, you should see the installed version number.
@@ -93,12 +93,12 @@ git --help
 
 Before we dive into using other important commands, let's look at how we can connect
  our initialized git repository to github cloud.  
-First you would have to create a free account with [Github](https://github.com). After creating your free github account, there are two ways to connect your locally initialized git repository to Github. Let's explore these options.
+First you would have to create a free account with [Github](https://github.com). After creating your free github account, let's explore the options of connecting your locally initialized git repository to Github.
 
 1. Using the **Github CLI (gh cli) Tool**
 2. Cloning an empty/existing git repository from your github to your local machine.
-
-#### Installing gh cli tool
+3. Adding a r
+## Installing gh cli tool
 
 ##### Windows OS
 
@@ -139,5 +139,46 @@ git push
 ```
 It is also a good practice to add a **README.md** file and a **.gitignore** file to your project. You can later look them up on your own.
 also 
+
+
+
+
+## Cloning an Already Existing Repository from github
+
+To use this approach, you can login on to your github cloud on the web.  
+1. Click on **New** from the repository tab on your github page to create a new repository.
+2. Fill out the information in the form opened. Thus Enter the name of your repositiry, description, and set up the visibility of your project as well. Private repositories are only visible to repositories and collaborators (users with permission).
+
+After creating the repository the next step is to clone the repository to your local machine running `git clone YOUR_REPOSITORY_URL`, where your **YOUR_REPOSITORY_URL** is a path to your online repo e.g (https://www.github.com/your-username/repository-name.git  
+ After Successfully cloning the repository, you can now add your files to the directory and run 
+```{git}
+
+git add .
+git commit -m "Initial Commit"
+git push --set-upstream origin master
+```
+
+
+
+## Connecting to Github Remotely
+
+To connect your local repository to github remotely, you'd first have to log on to your github cloud and create and empty repository with the exact name as your locally initialized directory.
+If you already have a project directory, your Github repository should bare the same name as your local project directory. If you do not have a local project yet, then create one on you local machine and name it same as your github repository.
+
+Initialize your local working directory with git by running `git init`.
+Then run the following commands
+
+```{git}
+git remote add origin YOUR_REPOSITORY_URL
+git add .
+git commit -m "Initial Commit"
+git push --se-upstream origin master
+
+```
+Where **YOUR_REPOSITORY_URL** is the url or path to your github repository. e.g (https://www.github.com/your-username/repository.git)  
+
+
+
+
 
 
