@@ -19,6 +19,60 @@ Git is a free and open source distributed version control system designed to han
 Created by Linus Torvalds in 2005, it allows multiple developers to work on the same project simultaneously without overwriting each other's changes.  
 While git is a local tool that tracks your code history, it is mostly used alongsided **Github**, an online platform that hosts your Git repositories in the cloud.
 ## Installing Git
+#### windows
+**Step 1**  
+To install git in windows,  
+1. Open a browser on your computer.
+2. Go to the official website of git [Git](https://git-scm.com/install/windows)
+3. Click the **64-bit Git for Windows Setup** link to download the executable (.exe) file.
+
+**Step 2**  
+1. Double-click the downloaded .exe file to start the installation.
+2. Grant administrative permissions if prompted.
+3. Click **Next** to accept the license agreement.
+
+
+**Step 3**  
+- Choose your preferred text editor
+- Adjust your PATH environment: **Select** "Git from the command line and also from 3rd-party software". This ensures you're able to run git from the windows command prompt, Powershell, or your text editor.
+
+
+**Step 4: Verify the Installation**
+1. Open the windows command prompt or powershell
+2. Type the following commands and press Enter
+```{git}
+
+git --version
+```
+if successful, you should see the installed version number.
+
+
+**Step 5: Configure your credentials**
+```{bash}
+
+git config --global user.name "Your name" 
+git config --global user.email "Your email address"
+```
+
+
+#### Linux Systems
+
+Open your terminal enter the commands below:  
+```{bash}
+
+sudo apt update
+sudo apt upgrade
+
+sudo apt install git
+```
+
+run `git --version` to confirm the installation. If successful, the version number would be displayed.
+
+Configure your credentials using the commands below
+ ```{bash}
+ git config --global user.name "Your name"
+ git config --global user.email "Your email address" 
+```
 
 ### Basic Git Commands.
 
