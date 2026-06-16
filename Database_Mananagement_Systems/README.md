@@ -286,7 +286,7 @@ To delete a record (row) in our students database, run
 DELETE FROM students WHERE name = 'Alice Mensah';
 ```
 
-You can find A **PostreSQL** Cheat Sheet here: [psql cheatsheet](<iframe src="./docs/psql-cheatsheet.html" width="100%" height="400px"></frame>)  
+You can find A **PostreSQL** Cheat Sheet here: [psql cheatsheet](https://obedAdu-Gyamfi/github.io/TMC/Database_Management_Systems/docs/psql-cheatsheet.html)  
 
 
 
