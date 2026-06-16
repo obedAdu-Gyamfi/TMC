@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="introduction-to-databases">Introduction to Databases</h1>
+<p>A database is a structured, organised collection of data or
+information stored electronically in a computer system.</p>
+<p>### Why Choose A Database Over A Spreadsheet?</p>
+<ol type="1">
+<li><p><strong>Scalability</strong>: Databases can handle massive amount
+of data would cause spreadsheets to crash or perform poorly.</p></li>
+<li><p><strong>Data Integrity</strong>: They include built-in rules to
+ensure data is accurate and consistent.</p></li>
+<li><p><strong>Concurrency</strong>: Thousands of users can read and
+update data at the exact same time without overriding each other’s
+changes.</p></li>
+<li><p><strong>Security</strong>: Databases offer fine-tuned access
+controls that allows only autorized users to view or edit specific
+pieces of information.</p></li>
+</ol>
+<h1 id="introduction-to-database-management-systems">Introduction to
+Database Management Systems</h1>
+<h2 id="introduction">Introduction</h2>
+<p>A <strong>Database Management System (DBMS)</strong> is a software
+that enables users to create, define, maintain, and control access to a
+database. It acts as the interface between the end of user and the
+database, ensuring that data is consistently organised and remains
+easily accessible.</p>
+<h2 id="categories-of-database-management-systems-dbms">Categories of
+Database Management Systems (DBMS)</h2>
+<p>There are two major categories of <strong>Database Management Systems
+(DBMS)</strong>,</p>
+<ul>
+<li><p>Relational Databases (SQL): Data is organised into structured
+tables made up of rows and columns, similar to a spreadsheet
+appliction.<br />
+Example: <strong><a href="https://www.postgresql.org/">PostreSQL</a>, <a
+href="https://www.mysql.com/">MySQL</a>, <a
+href="https://www.oracle.com/">Oracle</a>, etc.</strong></p></li>
+<li><p>Non-Relational Database(NoSQL): Designed for unstructured or
+widely varied data. They do not user tabular models, instead storing
+information via formats like documents(files), key-value pairs(JSON), or
+graphs.<br />
+Example: <strong><a href="https://www.mongodb.com/">MongoDB</a>, <a
+href="https://redis.io/">Redis</a> , <a
+href="https://firebase.google.com/">Firebase</a> , <a
+href="https://supabase.com/">Superbase</a>, etc.</strong></p></li>
+</ul>
+<p>This project focuses on <strong>Relational Database</strong> and the
+language use to interact with them, <strong>SQL</strong>.</p>
+<h3 id="introduction-to-sql">Introduction to SQL</h3>
+<p><strong>SQL (Structured Query Language)</strong> is the standard
+language used to communicate with relational databases. It allows you to
+<code>creat</code>, <code>read</code>, <code>update</code> and
+<code>delete</code> data. These operations are often referred to as
+<strong>CRUD</strong>.</p>
+<p>The <strong>CRUD</strong> actions are the core actions performed on
+database. Example,</p>
+<p><code>{SQL} CREATE DATABASE school;</code> creates a database named
+school. To insert data into this database, you would have to create
+table object to organise and store your data in a structured
+format.<br />
+For an example Assuming I want to create a table object to store
+information about students in the schools database created earlier, I’d
+have to first connnect to that database (which would be explained very
+shortly),</p>
+<p>```{SQL}</p>
+<p>CREATE TABLE students( ID SERIAL PRIMARY KEY, fullname VARCHAR(50)
+NOT NULL, age INTEGER, stage INTEGER );</p>
+<pre><code>The query above creates a table object `students` with attributes/fields/Colums(represent the specific characteristics, properties or qualities of the entity your are storing) `ID`, 
+`fullname`, `age`, and `stage`.  
+The **Data Types** of each attribute must also be stated. Example of these data types include  
+`SERIAL` - whatever 
+`VARCHAR` - A string character  
+`INTEGER` - An integer data type  
+There are other data types as well and you can explore them later on your own. 
+Aside the data types, some of attributes where also given a **Constraint**, a rule enforced on the data columns to limit the type of data that can be stored in each column in the table.  
+Some of these **constraints** include `NOT NULL`, which makes that particular attribute to be a required field to be entered when inserting a record(row),  
+`PRIMARY KEY` which uniquely identifies each row or record in a SQL table.  
+There are other interesting *constraints* you can explore later on.
+
+
+### More SQL Commands
+There two main important SQL command languages,  
+- **Data Definition Language (DDL)**
+- **Data Manipulation Language (DML)**
+
+A **Data Definition Language (DDL)** command is used to build, alter or destroy the framework of your database (tables, indexes, and schemas).  
+These changes are permenant and happen automatically.  
+Example of these commands are  
+
+`CREATE;`   Used to create a new database or database object.  
+`ALTER;`    Used to change the structure of a database object (table, indexes, schema, etc).  
+`DROP;`     Used to delete delete a database or a database object (table, indexes, schemas, etc).  
+`TRUNCATE;` Used to delete all the rows or records of a database table object.
+
+
+A **Data Manipulation Language (DML)** Command on the other hand is used to manage and modify the actual data or information stored within 
+the database object or structure. **DML** commands are often used daily to handle records.  
+Example of **DML** Commands include  
+
+`INSERT;`  Used to add new row or record of data into a table.  
+`UPDATE;`  Used to modify and existing data values in a record or rows.   
+`DELETE;`  Used to remove a specific rows of data based on a condition.  
+`SELECT;`  Used to retrieve and view data from one or more tablesi in database;  
+
+You can explore more on DML commands later on your own. 
+
+**Tip: All database statements must be terminated with semi-colon &quot;`;`&quot;**
+
+# Introduction to PostgreSQL
+
+## Installing PostgreSQL
+
+### Windows
+
+**Step 1: Download**  
+1. Open a browser on your computer
+2. Go to the official [PostgreSQL](postgresql.org/download/windows) website and locate the installer
+3. Click on **Download the installer ** and select the latest version for **Windows x86-64**
+
+
+**Step 2: Run the Installer**  
+1. Double-click on the downloaded `.exe` file file start the installation.
+2. Grant administrative permissions if prompted.
+3. Click **Next**  and choose your installation directory.
+
+**Step 3: Configure**  
+1. Set Password for the default superuser (`postgres`).
+2. Leave the default port as `5432` unless it conflicts with another service.
+3. Select your preferred locale and click **Next to complete the installation**
+
+**Step 4: Verfy Installation**
+
+Open the windows command prompt or powershell and run:  
+```{bash}
+psql --version </code></pre>
+<p>If successful, you will see the installed version number.</p>
+<p><strong>Step 5: Connect to PostgresSQL</strong></p>
+<p>```{bash}</p>
+<p>psql -U postgres</p>
+<pre><code>Enter the password you set during installation. You now connectd to the PostreSQL interactive terminal `psql`
+
+
+
+### Linux
+
+To install the PostgreSQL server on your Linux Computer, run the commands below: 
+
+```{bash}
+sudo apt update &amp;&amp; sudo apt full upgrade -y
+sudo apt install postgresql postgresql-contrib -y</code></pre>
+<p>Start the PostreSQL Service:</p>
+<p><code>{bash} sudo systemctl start postgresql sudo systemctl enable postgresql</code>
+To check the status of the PostgreSQL service, run</p>
+<p><code>{bash} sudo systemctl status postgreslq</code></p>
+<p>Run <code>psql --version</code> to confirm the installation. Then
+switch to the default PostgreSQL user to connect.</p>
+<p>```{bash}</p>
+<p>psql -i -u postgres</p>
+<pre><code>
+### Creating a Database in PostgreSQL
+**SQL** is the standard language for relational database management systems, as such all SQL commands work effectively with PostreSQL as well.  
+For an example, to create a database in PostgreSQL, run:  
+#### Creating a Database 
+```{SQL}
+CREATE DATABASE my_database;</code></pre>
+<p>To select/switch to a database in PostgreSQL, use<br />
+<code>{SQL} \c my_database;</code></p>
+<p>After connecting to your database, we can use some
+<strong>DDL</strong> commands to define the structure of our database
+objects.<br />
+Let’s create a new table object called students.</p>
+<h4 id="creating-a-table-object">Creating a Table Object</h4>
+<p><code>{SQL} CREATE TABLE students (     id SERIAL PRIMARY KEY,     name VARCHAR(100) NOT NULL,     email VARCHAR(150) NOT NULL,     age INT,     enrolled BOOLEAN DEFAULT TRUE );</code>
+#### Changing the Structure of a Table Object Assuming we forgot to add
+the class attribute of the student after creating our table student, we
+can alter our table students and include the new attribute</p>
+<p><code>{SQL} ALTER TABLE students ADD COLUMN class VARCHAR(15);</code>
+Or meant to name this new attribute level instead, we can alter the
+table again as</p>
+<p><code>{SQL} ALTER TABLE students RENAME COLUMN class TO level;</code>
+We can also delete or drop a particular column or attribute say level if
+it’s no longer needed.</p>
+<p><code>{SQL} ALTER TABLE students DROP COLUMN level;</code></p>
+<p>We can also delete the students table compelete.<br />
+<code>{SQL} DROP TABLE students;</code></p>
+<p>Now that we’ve created the structure or framework of our database,
+lets populate our table with some data and play with a few
+<strong>DML</strong> commands.</p>
+<h4 id="populating-a-table-object-with-data">Populating A Table Object
+With Data</h4>
+<p>```{SQL} INSERT INTO students(name, email, age, enrolled) VALUES
+(‘James Nkrumah’, ‘jamasnkrumah@gmail.com’, 21, TRUE);</p>
+<p>INSERT INTO students(name, email, age, enrolled) VALUES (‘Yaw Boadi’,
+‘yawb@gmail.com’, 24, False);</p>
+<pre><code>Lets insert a couple of records in one query  
+
+```{SQL}
+INSERT INTO students(name, email, age, enrolled)
+VALUES
+    (&#39;Prince Adomakoe&#39;, &#39;princeadadomako123@gmail.com&#39;, 19),
+    (&#39;Lawrencia Nyarko&#39;, &#39;lawrencia201@gmail.com&#39;, 20),
+    (&#39;Alice Mensah&#39;, &#39;mensahaalic@gmail.com&#39;, 21, False),
+    (&#39;Edith Agyapong&#39;, &#39;agyapong.edith@gmail.com&#39;, 22, TRUE),
+    (&#39;Kofi Asante&#39;, &#39;asanteyoyo@gmail.com&#39;, 19);
+</code></pre>
+<p><strong>Tip: </strong> Recorgnize how the first two records do not
+include the enrolled status? Yes that is because the enrolled attribute
+has a defualt value which is set to true whenever that option is not
+provided.</p>
+<h4 id="reading-data-from-a-database-table">Reading Data From a Database
+Table</h4>
+<p>Let’s read some records from our students table.</p>
+<p>```{SQL}</p>
+<p>– To Select all columns and rows of the student table SELECT * FROM
+STUDENTS; – PostgreSQL is case-insensitive, hence students ==
+STUDENTS</p>
+<p>– To select specific columns SELECT name, email FROM students;</p>
+<p>– To filter with a condition SELECT name, email FROM students WHERE
+enrolled = TRUE;</p>
+<p>– To sort query results SELECT * FROM students ORDER BY name ASC;</p>
+<p>– Limit the number of records returned in a query SELECT * FROM
+students LIMIT 5;</p>
+<pre><code>#### Update Data
+Let&#39;s update some records in our students table  
+
+```{SQL}
+UPDATE students
+SET age = 22
+WHERE name = &#39;Kofi Asante&#39;;</code></pre>
+<h4 id="deleting-a-record">Deleting a Record</h4>
+<p>To delete a record (row) in our students database, run</p>
+<p><code>{SQL} DELETE FROM students WHERE name = 'Alice Mensah';</code></p>
+<p>You can find A <strong>PostreSQL</strong> Cheat Sheet here: <a
+href="https://github.com/obedAdu-Gyamfi/TMC/blob/master/Database_Mananagement_Systems/docs/psql-cheatsheet.html">psql
+cheatsheet</a></p>
+<p>Author: <strong>Obed Adu-Gyamfi</strong><br />
+Email: <a
+href="adugyamfiobed.tpp3@gmail.com">adugyamfiobed.tpp3@gmail.com</a></p>
+</body>
+</html>
