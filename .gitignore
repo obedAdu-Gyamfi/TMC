@@ -1,2 +1,11 @@
 *.swp
-
+*.log
+*.out
+*.nav
+*.snm
+*.toc
+*.vrb
+*.aux
+*.fdb*
+*.fls
+*.synct*

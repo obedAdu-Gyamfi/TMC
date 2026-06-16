@@ -1,0 +1,59 @@
+\section{What is Version Control?}
+% ═════════════════════════════════════════════════
+
+\begin{frame}{\textcolor{brown}{What is Version Control?}}
+  \begin{block}{Definition}
+    A \textbf{Version Control System (VCS)} tracks and manages changes to files over time, maintaining a detailed history of every modification.
+  \end{block}
+
+  \vspace{0.5em}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+      \textbf{\faServer\; Centralized VCS (CVCS)}
+      \begin{itemize}
+        \item Single central server stores all files and history
+        \item Developers commit/pull directly to the server
+        \item Examples: \textit{Apache Subversion (SVN)}, \textit{CVS}
+      \end{itemize}
+
+    \column{0.48\textwidth}
+      \textbf{\faNetworkWired\; Distributed VCS (DVCS)}
+      \begin{itemize}
+        \item Every collaborator holds a \textbf{full copy} of the project including its history
+        \item Works offline; more resilient
+        \item Examples: \textit{Git}, \textit{Mercurial}, \textit{Darcs}
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+% ═════════════════════════════════════════════════
+\section{Git \& GitHub}
+% ═════════════════════════════════════════════════
+
+\begin{frame}{\textcolor{brown}{Git \& GitHub}}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+      \begin{block}{\faGit*\; Git}
+        \begin{itemize}
+          \item Free, open-source DVCS
+          \item Created by \textbf{Linus Torvalds} in 2005
+          \item Handles projects of any size with speed
+          \item Allows simultaneous multi-developer work without overwriting changes
+          \item Runs \textbf{locally} on your machine
+        \end{itemize}
+      \end{block}
+
+    \column{0.48\textwidth}
+      \begin{block}{\faGithub\; GitHub}
+        \begin{itemize}
+          \item Online platform for hosting Git repositories in the \textbf{cloud}
+          \item Enables collaboration, code review, and issue tracking
+          \item Git and GitHub are complementary tools
+        \end{itemize}
+      \end{block}
+  \end{columns}
+
+  \vspace{0.8em}
+  \centering
+  \textit{``Git tracks your history locally — GitHub shares it with the world.''}
+\end{frame}

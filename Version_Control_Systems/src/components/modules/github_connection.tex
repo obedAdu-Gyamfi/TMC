@@ -1,0 +1,74 @@
+\section{Connecting to GitHub}
+% ═════════════════════════════════════════════════
+
+\begin{frame}[fragile]{\textcolor{brown}{Method 1: GitHub CLI (\texttt{gh})}}
+\begin{block}{Install on Windows}
+\begin{lstlisting}[style=gitcode]
+winget install GitHub.cli   # using winget
+scoop install gh            # using Scoop
+\end{lstlisting}
+\end{block}
+
+
+
+\begin{block}{\textbf{Authenticate}}
+\begin{lstlisting}[style=gitcode]
+gh auth login
+\end{lstlisting}
+\end{block}  \textbf{Install on Windows}
+
+
+\begin{block} {\textbf{Create \& push a new repo in one command}}
+\begin{lstlisting}[style=gitcode]
+gh repo create YOUR_PROJECT_NAME \
+  --public --source=. --remote=origin --push
+\end{lstlisting}
+\end{block}
+
+
+\emph{\textbf{NB:  }} Replace `'\texttt{--public}`' with `'\texttt{--private}`' if you do not want the repository visible to everyone.
+
+\end{frame}
+
+% ─────────────────────────────────────────────────
+\begin{frame}[fragile]{Method 2: Clone an Existing Repository}
+  \begin{enumerate}
+    \item Log in to \href{https://github.com}{github.com}
+    \item Click \textbf{New} on the Repositories tab
+    \item Fill in name, description, and visibility, then create
+    \item Clone the repository locally:
+  \end{enumerate}
+
+\begin{lstlisting}[style=gitcode]
+git clone https://github.com/username/repository.git
+\end{lstlisting}
+
+  Add your files, then push:
+\begin{lstlisting}[style=gitcode]
+git add .
+git commit -m "Initial Commit"
+git push --set-upstream origin master
+\end{lstlisting}
+\end{frame}
+
+% ─────────────────────────────────────────────────
+\begin{frame}[fragile]{Method 3: Remote Add (Existing Local Project)}
+  Already have a local project? Link it to a new empty GitHub repo:
+
+\begin{lstlisting}[style=gitcode]
+git init
+git remote add origin YOUR_REPOSITORY_URL
+git add .
+git commit -m "Initial Commit"
+git push --set-upstream origin master
+\end{lstlisting}
+
+  \begin{block}{Tip}
+    \texttt{YOUR\_REPOSITORY\_URL} looks like:\\
+    \texttt{https://github.com/username/repository.git}
+  \end{block}
+
+  \begin{alertblock}{Name Match}
+    Your local project folder and GitHub repository should share the same name for clarity.
+  \end{alertblock}
+\end{frame}

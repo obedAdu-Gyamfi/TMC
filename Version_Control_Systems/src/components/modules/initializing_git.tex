@@ -1,0 +1,48 @@
+
+% ═════════════════════════════════════════════════
+\section{Basic Git Commands}
+% ═════════════════════════════════════════════════
+
+\begin{frame}[fragile]{\textcolor{brown}{Initializing a Repository}}
+\begin{block}{\textcolor{white}{Create a new Git repository in your project folder}}
+Run the command below to initialize a new git repository.
+\begin{lstlisting}[style=gitcode]
+git init
+\end{lstlisting}
+
+  \vspace{0.4em}
+  After initializing, explore with these commands:
+
+  \begin{center}
+    \begin{tabular}{ll}
+      \hline
+      \textbf{Command} & \textbf{Description} \\
+      \hline
+      \texttt{git status}  & Current state of working directory \& staging area \\
+      \texttt{git log}     & Chronological list of all commits \\
+      \texttt{git {-}{-}help}  & Display help for Git commands \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{block}
+\end{frame}
+
+% ─────────────────────────────────────────────────
+\begin{frame}[fragile]{\textcolor{brown}{The Core Workflow}}
+  \begin{block}{Staging \& Committing}
+    \begin{description}
+      \item[\texttt{git add .}] Moves all changes to the \textbf{staging area} (index) — a draft board between your working directory and permanent history.
+      \item[\texttt{git commit -m "..."}] Saves a \textbf{permanent snapshot} of staged changes. Use a meaningful message to describe what changed.
+    \end{description}
+  \end{block}
+
+\begin{lstlisting}[style=gitcode]
+git add .
+git commit -m "Describe what changed"
+git push
+\end{lstlisting}
+
+  \begin{alertblock}{Best Practice}
+    Commit often with clear messages. You can always restore your project to any snapshot.
+  \end{alertblock}
+\end{frame}

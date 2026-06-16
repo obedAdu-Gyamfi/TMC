@@ -1,0 +1,127 @@
+\documentclass[aspectratio=169]{beamer}
+
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\useinnertheme{rounded}
+
+\definecolor{gitorange}{RGB}{240,80,50}
+\definecolor{githubdark}{RGB}{36,41,46}
+\definecolor{codeteal}{RGB}{0,128,128}
+
+\setbeamercolor{frametitle}{bg=githubdark, fg=white}
+\setbeamercolor{title}{bg=githubdark, fg=white}
+\setbeamercolor{palette primary}{bg=githubdark, fg=white}
+\setbeamercolor{palette secondary}{bg=gitorange, fg=white}
+\setbeamercolor{palette tertiary}{bg=githubdark!80, fg=white}
+\setbeamercolor{block title}{bg=codeteal, fg=white}
+\setbeamercolor{block body}{bg=codeteal!20}
+
+% Packages
+\usepackage{listings}
+\usepackage{fontawesome5}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{graphicx}
+\usepackage{apacite}
+\bibliographystyle{apacite}
+
+
+
+\setbeamertemplate{logo}{%
+  \hspace*{-0.9\paperwidth}%
+  \includegraphics[width=2.0cm]{public/logo.png}%
+  }
+
+% Code listing style
+\lstdefinestyle{gitcode}{
+  backgroundcolor=\color{githubdark!95},
+  basicstyle=\ttfamily\small\color{white},
+  keywordstyle=\color{gitorange}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\color{green!60},
+  frame=single,
+  framerule=0pt,
+  rulecolor=\color{githubdark},
+  breaklines=true,
+  showstringspaces=false,
+  xleftmargin=6pt,
+  xrightmargin=6pt,
+  aboveskip=6pt,
+  belowskip=6pt,
+}
+
+% Metadata
+
+\title[Version Control Systems]{\faCodeBranch\; Introduction to Version Control Systems}
+\subtitle{Git, GitHub \& Collaboration}
+\date{\today}
+% \institute{\textcolor{brown}{\Large{KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY}}}
+% \text{Department of Mathematics}
+\author{Obed Adu-Gyamfi}
+
+
+% Navigation symbols off
+\setbeamertemplate{navigation symbols}{}
+
+% Footer
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{palette primary}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{palette secondary}%
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,right]{palette tertiary}%
+      \usebeamerfont{date in head/foot}\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+    \end{beamercolorbox}%
+  }%
+}
+
+\begin{document}
+\begin{frame}
+  \begin{figure}
+    \centering
+    \includegraphics[width=1.90cm]{public/logo.png}
+    \includegraphics[width=1.20cm]{public/knust_logo.png}
+    \label{fig:placeholder}
+\end{figure}
+\begin{center}
+  \textbf{\textcolor{brown}{Department of Mathematics}}\\
+  \textbf{\textcolor{brown}{The Mathematics Community (TMC)}}\\
+
+\end{center}
+  \titlepage
+\end{frame}
+
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+\include{components/modules/introduction}
+\include{components/modules/git_installation}
+\include{components/modules/initializing_git}
+\include{components/modules/github_connection}
+\include{components/modules/summary}
+
+\begin{frame}
+  \centering
+  \vspace{1em}
+  {\Huge \faGithub}\\[0.8em]
+  {\Large \textbf{Thank You!}}\\[0.5em]
+  {\large Start tracking your code today.}\\[1.5em]
+
+  \begin{tabular}{ll}
+    \faLink & \href{https://git-scm.com}{git-scm.com} \\[4pt]
+    \faGithub & \href{https://github.com}{github.com} \\[4pt]
+    \faBook & \texttt{git --help} \\
+  \end{tabular}
+\end{frame}
+
+
+
+
+\end{document}

@@ -1,0 +1,57 @@
+\section{Installing Git}
+
+
+\begin{frame}[fragile]{\textcolor{brown}{Installing Git — Windows}}
+  \textbf{Step 1: Download}
+  \begin{itemize}
+    \item Visit \href{https://git-scm.com/install/windows}{\texttt{git-scm.com}} and download the \textbf{64-bit Windows Setup} \texttt{.exe}
+  \end{itemize}
+
+  \textbf{Step 2: Install}
+  \begin{itemize}
+    \item Run the installer, accept the license, and click \textit{Next}
+  \end{itemize}
+
+  \textbf{Step 3: Configure PATH}
+  \begin{itemize}
+    \item Select \textit{"Git from the command line and also from 3rd-party software"}
+  \end{itemize}
+
+  \textbf{Step 4: Verify}
+\begin{lstlisting}[style=gitcode]
+git --version
+\end{lstlisting}
+
+  \textbf{Step 5: Set credentials}
+\begin{lstlisting}[style=gitcode]
+git config --global user.name  "Your Name"
+git config --global user.email "you@example.com"
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]{\textcolor{brown}{Installing Git — Linux}}
+  \begin{block}{Open a terminal and run}
+
+\begin{lstlisting}[style=gitcode]
+sudo apt update && sudo apt upgrade
+sudo apt install git
+\end{lstlisting}
+\end{block}
+  \begin{block}{Confirm the installation}
+\begin{lstlisting}[style=gitcode]
+git --version
+\end{lstlisting}
+\end{block}
+
+  \begin{block}{Configure your identity}
+\begin{lstlisting}[style=gitcode]
+git config --global user.name  "Your Name"
+git config --global user.email "you@example.com"
+\end{lstlisting}
+\end{block}
+
+%   \begin{alertblock}{Tip}
+    \emph{\textbf{NB: }}These credentials are attached to every commit you make, so set them correctly from the start.
+%   \end{alertblock}
+\end{frame}
