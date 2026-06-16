@@ -1,0 +1,38 @@
+\section{Going Further}
+%% ═════════════════════════════════════════════════════════════════════════════
+
+\begin{frame}{Going Further — pgAdmin}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+      \begin{block}{\faDesktop\; pgAdmin}
+        \textbf{pgAdmin} is the official open-source graphical desktop tool
+        for managing PostgreSQL databases.
+
+        \vspace{0.4em}
+        \begin{itemize}
+          \item Browse databases and tables visually
+          \item Write and execute SQL queries in a GUI editor
+          \item Inspect table structures, indexes, and constraints
+          \item Monitor server activity and performance
+          \item Export and import data easily
+        \end{itemize}
+
+        \vspace{0.4em}
+        Download: \href{https://www.pgadmin.org/download/}{\texttt{pgadmin.org/download}}
+      \end{block}
+
+    \column{0.40\textwidth}
+      \begin{exampleblock}{When to use \texttt{psql} vs pgAdmin}
+        \vspace{0.2em}
+        \begin{tabular}{p{1.4cm}p{2cm}}
+          \textbf{psql} & Scripting, quick queries, remote servers \\[6pt]
+          \textbf{pgAdmin} & Visual exploration, schema design, beginners \\
+        \end{tabular}
+      \end{exampleblock}
+
+      \vspace{0.5em}
+      \begin{alertblock}{\faLightbulb\; Tip}
+        Start with pgAdmin to understand the structure visually, then move to \texttt{psql} for efficiency.
+      \end{alertblock}
+  \end{columns}
+\end{frame}

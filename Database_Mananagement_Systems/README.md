@@ -288,6 +288,7 @@ DELETE FROM students WHERE name = 'Alice Mensah';
 
 You can find A **PostreSQL** Cheat Sheet here: [psql cheatsheet](https://obedadu-gyamfi.github.io/TMC/Database_Mananagement_Systems/docs/psql-cheatsheet.html)  
 
+For People who want to explore more on **PostgreSQL**, you can also look up PostreSQL's Deskotp tool [pgAdmin](https://www.pgadmin.org/download/) 
 
 
 Author: **Obed Adu-Gyamfi**  

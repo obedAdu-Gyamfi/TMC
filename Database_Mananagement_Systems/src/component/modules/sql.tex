@@ -1,0 +1,61 @@
+
+\section{Introduction to SQL}
+
+\begin{frame}{\textcolor{brown}{SQL \& CRUD}}
+  \begin{block}{SQL — Structured Query Language}
+    The \textbf{standard language} for communicating with relational databases.
+    SQL lets you perform four fundamental operations, collectively called \textbf{CRUD}:
+  \end{block}
+
+  \vspace{0.5em}
+  \begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{ccll}
+      \toprule
+      \textbf{Letter} & \textbf{Operation} & \textbf{SQL Command} & \textbf{Purpose} \\
+      \midrule
+      \textbf{C} & Create & \texttt{INSERT}  & Add new records \\
+      \textbf{R} & Read   & \texttt{SELECT}  & Retrieve records \\
+      \textbf{U} & Update & \texttt{UPDATE}  & Modify existing records \\
+      \textbf{D} & Delete & \texttt{DELETE}  & Remove records \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+
+  \vspace{0.5em}
+  % \begin{alertblock}{\faExclamationCircle\; Syntax Rule}
+\emph{\textbf{NB: }}All SQL statements must end with a semicolon \textbf{`` \texttt{;} ''}
+  % \end{alertblock}
+\end{frame}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[fragile]{\textcolor{brown}{Creating a Database \& Your First Table}}
+Create a database:
+\lstinputlisting[style=sql]{../src/component/src/create_db.sql}
+% \begin{lstlisting}[style=sql]
+% CREATE DATABASE school;
+% \end{lstlisting}
+
+\begin{block}{Create a table to store student records:}
+\lstinputlisting[style=sql]{../src/component/src/create_table.sql}
+\end{block}
+  \begin{columns}[T]
+    \column{0.46\textwidth}
+      \textbf{Data Types}
+      \begin{itemize}
+        \item \texttt{SERIAL} — auto-incrementing integer
+        \item \texttt{VARCHAR(n)} — string up to \textit{n} characters
+        \item \texttt{INTEGER} — whole number
+        \item \texttt{BOOLEAN} — true / false
+      \end{itemize}
+
+    \column{0.50\textwidth}
+      \textbf{Constraints}
+      \begin{itemize}
+        \item \texttt{PRIMARY KEY} — uniquely identifies each row
+        \item \texttt{NOT NULL} — field is required; cannot be empty
+        \item \texttt{UNIQUE} — no duplicate values allowed
+        \item \texttt{DEFAULT} — sets a fallback value
+      \end{itemize}
+  \end{columns}
+\end{frame}

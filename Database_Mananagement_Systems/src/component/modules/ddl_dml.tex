@@ -1,0 +1,64 @@
+
+\section{DDL \& DML}
+%% ═════════════════════════════════════════════════════════════════════════════
+
+\begin{frame}{DDL vs DML}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+      \begin{block}{Data Definition Language (DDL)}
+        Builds, alters, or destroys the \textbf{structure} of the database.
+        Changes are \textbf{permanent and immediate}.
+
+        \vspace{0.4em}
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{ll}
+          \texttt{CREATE}   & Create a DB or object \\
+          \texttt{ALTER}    & Modify structure \\
+          \texttt{DROP}     & Delete DB or object \\
+          \texttt{TRUNCATE} & Delete all rows \\
+        \end{tabular}
+      \end{block}
+
+    \column{0.48\textwidth}
+      \begin{exampleblock}{Data Manipulation Language (DML)}
+        Manages and modifies the \textbf{actual data} inside tables.
+        Used daily to handle records.
+
+        \vspace{0.4em}
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{ll}
+          \texttt{INSERT} & Add new rows \\
+          \texttt{SELECT} & Retrieve data \\
+          \texttt{UPDATE} & Modify existing data \\
+          \texttt{DELETE} & Remove specific rows \\
+        \end{tabular}
+      \end{exampleblock}
+  \end{columns}
+\end{frame}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[fragile]{DDL in Action — ALTER \& DROP}
+  Add a column that was omitted at creation:
+\begin{lstlisting}[style=sql]
+ALTER TABLE students ADD COLUMN class VARCHAR(15);
+\end{lstlisting}
+
+  Rename the column to something more appropriate:
+\begin{lstlisting}[style=sql]
+ALTER TABLE students RENAME COLUMN class TO level;
+\end{lstlisting}
+
+  Remove the column when it is no longer needed:
+\begin{lstlisting}[style=sql]
+ALTER TABLE students DROP COLUMN level;
+\end{lstlisting}
+
+  Delete the entire table permanently:
+\begin{lstlisting}[style=sql]
+DROP TABLE students;
+\end{lstlisting}
+
+  \begin{alertblock}{\faExclamationTriangle\; Warning}
+    \texttt{DROP TABLE} deletes the table \textbf{and all its data irreversibly}. There is no undo — always double-check before running it.
+  \end{alertblock}
+\end{frame}

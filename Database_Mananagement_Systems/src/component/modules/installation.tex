@@ -1,0 +1,57 @@
+
+\section{Installing PostgreSQL}
+%% ═════════════════════════════════════════════════════════════════════════════
+
+\begin{frame}[fragile]{\textcolor{brown}{Installing PostgreSQL — Windows}}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+      \textbf{Installation Steps}
+      \begin{enumerate}
+        \item Go to \href{https://postgresql.org/download/windows}{\texttt{postgresql.org/download/windows}}
+        \item Download the \textbf{Windows x86-64} installer
+        \item Run the \texttt{.exe}, grant permissions, click \textit{Next}
+        \item Set a password for the default superuser \texttt{postgres}
+        \item Keep the default port \textbf{5432} and finish the wizard
+      \end{enumerate}
+
+    \column{0.42\textwidth}
+      \textbf{Verify \& Connect}
+\begin{lstlisting}[style=bash]
+psql --version
+\end{lstlisting}
+\begin{lstlisting}[style=bash]
+psql -U postgres
+\end{lstlisting}
+      \begin{block}{\faKey\; Tip}
+        Keep the \texttt{postgres} superuser password safe — you will need it every time you connect.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[fragile]{\textcolor{brown}{Installing PostgreSQL — Linux}}
+  Install PostgreSQL and the contrib extension package:
+\begin{lstlisting}[style=bash]
+sudo apt update && sudo apt full-upgrade -y
+sudo apt install postgresql postgresql-contrib -y
+\end{lstlisting}
+
+  Start and enable the service to run on boot:
+\begin{lstlisting}[style=bash]
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+\end{lstlisting}
+
+  Check that the service is running:
+\begin{lstlisting}[style=bash]
+sudo systemctl status postgresql
+\end{lstlisting}
+
+  Switch to the default PostgreSQL user and connect:
+\begin{lstlisting}[style=bash]
+sudo -i -u postgres
+psql
+\end{lstlisting}
+
+  You are now inside the \texttt{psql} interactive terminal.
+\end{frame}

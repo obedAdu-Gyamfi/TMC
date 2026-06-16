@@ -1,0 +1,119 @@
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+
+\usecolortheme{default}
+\useinnertheme{rounded}
+
+\definecolor{pgblue}{RGB}{51,103,145}
+\definecolor{pgdark}{RGB}{28,57,82}
+\definecolor{pgaccent}{RGB}{240,160,30}
+\definecolor{codeteal}{RGB}{20,110,110}
+\definecolor{codedbg}{RGB}{22,27,34}
+\definecolor{gitorange}{RGB}{240,80,50}
+\definecolor{githubdark}{RGB}{36,41,46}
+\definecolor{codeteal}{RGB}{0,128,128}
+
+\setbeamercolor{frametitle}{bg=pgdark, fg=white}
+\setbeamercolor{title}{bg=pgdark, fg=white}
+\setbeamercolor{palette primary}{bg=pgdark, fg=white}
+\setbeamercolor{palette secondary}{bg=pgblue, fg=white}
+\setbeamercolor{palette tertiary}{bg=pgdark!80, fg=white}
+\setbeamercolor{block title}{bg=pgblue, fg=white}
+\setbeamercolor{block body}{bg=pgblue!10}
+\setbeamercolor{alertblock title}{bg=pgaccent!90, fg=pgdark}
+\setbeamercolor{alertblock body}{bg=pgaccent!15}
+\setbeamercolor{exampleblock title}{bg=codeteal, fg=white}
+\setbeamercolor{exampleblock body}{bg=codeteal!10}
+\setbeamercolor{itemize item}{fg=pgblue}
+\setbeamercolor{itemize subitem}{fg=pgaccent}
+
+
+
+
+\setbeamercolor{palette primary}{bg=githubdark, fg=white}
+\setbeamercolor{palette secondary}{bg=pgdark, fg=white}
+\setbeamercolor{palette tertiary}{bg=githubdark!80, fg=white}
+\setbeamercolor{block title}{bg=codeteal, fg=white}
+\setbeamercolor{block body}{bg=codeteal!20}
+
+% Packages
+
+
+\lstset{language=bash}
+
+\lstdefinestyle{gitcode}{
+  backgroundcolor=\color{pgdark!70},
+  basicstyle=\ttfamily\small\color{white},
+  keywordstyle=\color{gitorange}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\color{green!60},
+  frame=single,
+  framerule=0pt,
+  rulecolor=\color{githubdark},
+  breaklines=true,
+  showstringspaces=false,
+  xleftmargin=6pt,
+  xrightmargin=6pt,
+  aboveskip=6pt,
+  belowskip=6pt,
+}
+
+
+\lstdefinelanguage{PSQL}{
+  morekeywords={
+    CREATE,DATABASE,TABLE,DROP,ALTER,TRUNCATE,INSERT,INTO,VALUES,
+    SELECT,FROM,WHERE,UPDATE,SET,DELETE,ADD,COLUMN,RENAME,TO,
+    ORDER,BY,ASC,DESC,LIMIT,DEFAULT,NOT,NULL,PRIMARY,KEY,SERIAL,
+    VARCHAR,INTEGER,INT,BOOLEAN,TRUE,FALSE,AND,OR,LIKE,IN,BETWEEN
+  },
+  sensitive=false,
+  morecomment=[l]{--},
+  morestring=[b]'
+}
+
+\lstdefinestyle{sql}{
+  language=PSQL,
+  % backgroundcolor=\color{codedbg!70},
+  basicstyle=\ttfamily\scriptsize\color{blue},
+  keywordstyle=\color{gitorange}\bfseries,
+  commentstyle=\color{gray!70},
+  stringstyle=\color{pgdark},
+  frame=single, framerule=0pt,
+  breaklines=true, showstringspaces=false,
+  xleftmargin=4pt, xrightmargin=4pt,
+  aboveskip=3pt, belowskip=3pt,
+}
+
+\lstdefinestyle{bash}{
+  backgroundcolor=\color{pgdark!70},
+  basicstyle=\ttfamily\scriptsize\color{white!95!blue},
+  frame=single, framerule=0pt,
+  breaklines=true, showstringspaces=false,
+  xleftmargin=4pt, xrightmargin=4pt,
+  aboveskip=3pt, belowskip=3pt,
+}
+
+
+\setbeamertemplate{footline}{%
+  \leavevmode
+  \hbox{%
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.25ex,dp=1ex,center]{palette primary}
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.47\paperwidth,ht=2.25ex,dp=1ex,center]{palette secondary}
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.20\paperwidth,ht=2.25ex,dp=1ex,right]{palette tertiary}
+      \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+    \end{beamercolorbox}%
+  }%
+}
+
+
+
+\setbeamertemplate{logo}{%
+  \hspace*{-0.9\paperwidth}%
+  \includegraphics[width=2.0cm]{../../utils/public/logo.png}%
+  }
+% \setbeamertemplate{navigation symbols}{}

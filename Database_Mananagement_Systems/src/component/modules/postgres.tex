@@ -1,0 +1,66 @@
+\section{Working with PostgreSQL}
+%% ═════════════════════════════════════════════════════════════════════════════
+
+\begin{frame}[fragile]{\textcolor{brown}{Setting Up a mock Database}}
+\begin{block}{Create and connect to the database}
+\begin{lstlisting}[style=sql]
+CREATE DATABASE my_database;
+\c my_database
+\end{lstlisting}
+
+\end{block}
+
+\begin{block}{Create the \texttt{students} table with a default value on \texttt{enrolled}}
+\lstinputlisting[style=sql]{component/src/create_std.sql}
+
+\end{block}
+
+  % \begin{block}{\faLightbulb\; Note on \texttt{DEFAULT TRUE}}
+  %   When \texttt{enrolled} is omitted in an \texttt{INSERT} statement, PostgreSQL
+  %   automatically sets it to \texttt{TRUE}. You will see this in the next slide.
+  % \end{block}
+\end{frame}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[fragile]{\textcolor{brown}{Inserting Records (DML — INSERT)}}
+\begin{block}{Insert records one at a time}
+\lstinputlisting[style=sql]{component/src/insert_one.sql}
+
+\end{block}
+
+\begin{block}{Insert multiple records in a single query}
+\lstinputlisting[style=sql]{component/src/insert_mult.sql}
+\end{block}
+
+  % \begin{alertblock}{\faBolt\; Tip}
+  %   The last five records omit \texttt{enrolled} — PostgreSQL silently fills it with
+  %   the \texttt{DEFAULT} value of \texttt{TRUE}.
+  % \end{alertblock}
+\end{frame}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[fragile]{\textcolor{brown}{Reading Data (DML — SELECT)}}
+
+\begin{block}{Reading records from a table}
+\lstinputlisting[style=sql]{component/src/select.sql}
+\end{block}
+\end{frame}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[fragile]{\textcolor{brown}{Updating \& Deleting Records}}
+  \begin{block}{\textbf{UPDATE} — change an existing value}
+\lstinputlisting[style=sql]{component/src/update.sql}
+\end{block}
+
+  \vspace{0.3em}
+\begin{block}{\textbf{DELETE} — remove a specific row}
+\lstinputlisting[style=sql]{component/src/delete.sql}
+\end{block}
+
+  \vspace{0.3em}
+  % \begin{alertblock}{\faExclamationTriangle\; Critical Rule}
+  \emph{\textbf{NB: }}\textbf{Always include a \texttt{WHERE} clause} with both \texttt{UPDATE} and \texttt{DELETE}.
+    Without it, \\[4pt]
+  \textbf{every row} in the table will be modified or deleted.
+  % \end{alertblock}
+\end{frame}
