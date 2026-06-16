@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>psql Cheatsheet</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161d;
+    --surface2: #1a1e28;
+    --border: #252a38;
+    --accent: #4af6a8;
+    --accent2: #5b8af8;
+    --accent3: #f9a84d;
+    --accent4: #e05c7a;
+    --text: #e8ecf4;
+    --muted: #6b7491;
+    --code-bg: #0a0c10;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 32px;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-left { display: flex; flex-direction: column; gap: 4px; }
+
+  .header-tag {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  h1 span { color: var(--accent); }
+
+  .header-meta {
+    text-align: right;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  /* Grid layout */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .col-span-2 { grid-column: span 2; }
+  .col-span-3 { grid-column: span 3; }
+
+  /* Section cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-green  { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+  .dot-blue   { background: var(--accent2); box-shadow: 0 0 8px var(--accent2); }
+  .dot-orange { background: var(--accent3); box-shadow: 0 0 8px var(--accent3); }
+  .dot-red    { background: var(--accent4); box-shadow: 0 0 8px var(--accent4); }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .card-body { padding: 12px 0; }
+
+  /* Command rows */
+  .cmd {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    padding: 5px 16px;
+    transition: background 0.15s;
+  }
+
+  .cmd:hover { background: var(--surface2); }
+
+  .cmd-code {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .cmd-code.blue  { color: var(--accent2); }
+  .cmd-code.orange { color: var(--accent3); }
+  .cmd-code.red   { color: var(--accent4); }
+  .cmd-code.muted { color: #9da8c7; }
+
+  .cmd-desc {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  /* Section divider within card */
+  .cmd-section {
+    padding: 8px 16px 4px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #3d4460;
+    font-weight: 500;
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+  }
+
+  .cmd-section:first-child { border-top: none; margin-top: 0; }
+
+  /* Wide command rows for full-width cards */
+  .cmd-wide {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 8px 24px;
+    padding: 5px 16px;
+    transition: background 0.15s;
+  }
+  .cmd-wide:hover { background: var(--surface2); }
+
+  /* Footer */
+  .footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  .footer-tip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-tip::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <span class="header-tag">// quick reference</span>
+    <h1>psql <span>cheatsheet</span></h1>
+  </div>
+  <div class="header-meta">
+    PostgreSQL interactive terminal<br>
+    v14+ · All commands case-insensitive<br>
+    Backslash cmds need no semicolon
+  </div>
+</div>
+
+<div class="grid">
+
+  <!-- Connecting -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-dot dot-green"></div>
+      <span class="card-title">Connecting</span>
+    </div>
+    <div class="card-body">
+      <div class="cmd"><span class="cmd-code">psql -U user -d db</span><span class="cmd-desc">connect as user to db</span></div>
+      <div class="cmd"><span class="cmd-code">psql -h host -p 5432</span><span class="cmd-desc">specify host and port</span></div>
+      <div class="cmd"><span class="cmd-code">psql -U user postgres</span><span class="cmd-desc">connect to postgres db</span></div>
+      <div class="cmd"><span class="cmd-code">psql "postgres://u:p@h/db"</span><span class="cmd-desc">connect via URI</span></div>
+      <div class="cmd"><span class="cmd-code muted">\c dbname</span><span class="cmd-desc">switch database</span></div>
+      <div class="cmd"><span class="cmd-code muted">\c db user host</span><span class="cmd-desc">switch db, user, host</span></div>
+      <div class="cmd"><span class="cmd-code muted">\conninfo</span><span class="cmd-desc">show current connection</span></div>
+      <div class="cmd"><span class="cmd-code muted">\q</span><span class="cmd-desc">quit psql</span></div>
+    </div>
+  </div>
+
+  <!-- Listing & Describing -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-dot dot-blue"></div>
+      <span class="card-title">Listing &amp; Describing</span>
+    </div>
+    <div class="card-body">
+      <div class="cmd"><span class="cmd-code blue">\l</span><span class="cmd-desc">list databases</span></div>
+      <div class="cmd"><span class="cmd-code blue">\dt</span><span class="cmd-desc">list tables</span></div>
+      <div class="cmd"><span class="cmd-code blue">\dt schema.*</span><span class="cmd-desc">list tables in schema</span></div>
+      <div class="cmd"><span class="cmd-code blue">\dv</span><span class="cmd-desc">list views</span></div>
+      <div class="cmd"><span class="cmd-code blue">\di</span><span class="cmd-desc">list indexes</span></div>
+      <div class="cmd"><span class="cmd-code blue">\ds</span><span class="cmd-desc">list sequences</span></div>
+      <div class="cmd"><span class="cmd-code blue">\df</span><span class="cmd-desc">list functions</span></div>
+      <div class="cmd"><span class="cmd-code blue">\dn</span><span class="cmd-desc">list schemas</span></div>
+      <div class="cmd"><span class="cmd-code blue">\du</span><span class="cmd-desc">list roles/users</span></div>
+      <div class="cmd"><span class="cmd-code blue">\d table</span><span class="cmd-desc">describe table</span></div>
+      <div class="cmd"><span class="cmd-code blue">\d+ table</span><span class="cmd-desc">describe with extras</span></div>
+    </div>
+  </div>
+
+  <!-- Output & Formatting -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-dot dot-orange"></div>
+      <span class="card-title">Output &amp; Formatting</span>
+    </div>
+    <div class="card-body">
+      <div class="cmd"><span class="cmd-code orange">\x</span><span class="cmd-desc">toggle expanded output</span></div>
+      <div class="cmd"><span class="cmd-code orange">\x auto</span><span class="cmd-desc">auto expanded mode</span></div>
+      <div class="cmd"><span class="cmd-code orange">\a</span><span class="cmd-desc">toggle aligned output</span></div>
+      <div class="cmd"><span class="cmd-code orange">\t</span><span class="cmd-desc">toggle tuples only</span></div>
+      <div class="cmd"><span class="cmd-code orange">\timing</span><span class="cmd-desc">toggle query timing</span></div>
+      <div class="cmd"><span class="cmd-code orange">\pset null 'NULL'</span><span class="cmd-desc">display NULLs visibly</span></div>
+      <div class="cmd"><span class="cmd-code orange">\o file.txt</span><span class="cmd-desc">send output to file</span></div>
+      <div class="cmd"><span class="cmd-code orange">\o</span><span class="cmd-desc">reset output to stdout</span></div>
+    </div>
+  </div>
+
+  <!-- Query Execution (full width) -->
+  <div class="card col-span-3">
+    <div class="card-header">
+      <div class="card-dot dot-green"></div>
+      <span class="card-title">Query Execution &amp; History</span>
+    </div>
+    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0">
+      <div>
+        <div class="cmd"><span class="cmd-code">\e</span><span class="cmd-desc">open query in editor</span></div>
+        <div class="cmd"><span class="cmd-code">\ef funcname</span><span class="cmd-desc">edit function in editor</span></div>
+        <div class="cmd"><span class="cmd-code">\ev viewname</span><span class="cmd-desc">edit view in editor</span></div>
+      </div>
+      <div>
+        <div class="cmd"><span class="cmd-code">\g</span><span class="cmd-desc">re-execute last query</span></div>
+        <div class="cmd"><span class="cmd-code">\g file.txt</span><span class="cmd-desc">exec &amp; save to file</span></div>
+        <div class="cmd"><span class="cmd-code">\p</span><span class="cmd-desc">show query buffer</span></div>
+      </div>
+      <div>
+        <div class="cmd"><span class="cmd-code">\r</span><span class="cmd-desc">clear query buffer</span></div>
+        <div class="cmd"><span class="cmd-code">\s</span><span class="cmd-desc">show history</span></div>
+        <div class="cmd"><span class="cmd-code">\s file.txt</span><span class="cmd-desc">save history to file</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import / Export -->
+  <div class="card col-span-2">
+    <div class="card-header">
+      <div class="card-dot dot-orange"></div>
+      <span class="card-title">Import &amp; Export</span>
+    </div>
+    <div class="card-body">
+      <div class="cmd-wide"><span class="cmd-code orange">\i file.sql</span><span class="cmd-desc">execute SQL from file</span></div>
+      <div class="cmd-wide"><span class="cmd-code orange">\ir file.sql</span><span class="cmd-desc">execute relative to current file</span></div>
+      <div class="cmd-wide"><span class="cmd-code orange">\copy t FROM 'f.csv' CSV HEADER</span><span class="cmd-desc">import CSV (client-side)</span></div>
+      <div class="cmd-wide"><span class="cmd-code orange">\copy t TO 'f.csv' CSV HEADER</span><span class="cmd-desc">export to CSV (client-side)</span></div>
+      <div class="cmd-wide"><span class="cmd-code orange">COPY t FROM '/path' CSV HEADER;</span><span class="cmd-desc">server-side import (needs superuser)</span></div>
+      <div class="cmd-wide"><span class="cmd-code orange">COPY t TO '/path' CSV HEADER;</span><span class="cmd-desc">server-side export</span></div>
+    </div>
+  </div>
+
+  <!-- Variables -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-dot dot-blue"></div>
+      <span class="card-title">Variables</span>
+    </div>
+    <div class="card-body">
+      <div class="cmd"><span class="cmd-code blue">\set name val</span><span class="cmd-desc">set a variable</span></div>
+      <div class="cmd"><span class="cmd-code blue">\set</span><span class="cmd-desc">list all variables</span></div>
+      <div class="cmd"><span class="cmd-code blue">\unset name</span><span class="cmd-desc">unset a variable</span></div>
+      <div class="cmd"><span class="cmd-code blue">:name</span><span class="cmd-desc">use variable in SQL</span></div>
+      <div class="cmd"><span class="cmd-code blue">:'name'</span><span class="cmd-desc">use as quoted string</span></div>
+      <div class="cmd"><span class="cmd-code blue">:"name"</span><span class="cmd-desc">use as quoted ident</span></div>
+    </div>
+  </div>
+
+  <!-- Common SQL — DDL -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-dot dot-red"></div>
+      <span class="card-title">DDL</span>
+    </div>
+    <div class="card-body">
+      <div class="cmd"><span class="cmd-code red">CREATE DATABASE db;</span><span class="cmd-desc">create a database</span></div>
+      <div class="cmd"><span class="cmd-code red">DROP DATABASE db;</span><span class="cmd-desc">drop a database</span></div>
+      <div class="cmd"><span class="cmd-code red">CREATE TABLE t (...);</span><span class="cmd-desc">create a table</span></div>
+      <div class="cmd"><span class="cmd-code red">DROP TABLE t;</span><span class="cmd-desc">drop a table</span></div>
+      <div class="cmd"><span class="cmd-code red">TRUNCATE t;</span><span class="cmd-desc">empty a table fast</span></div>
+      <div class="cmd"><span class="cmd-code red">ALTER TABLE t ADD col;</span><span class="cmd-desc">add column</span></div>
+      <div class="cmd"><span class="cmd-code red">ALTER TABLE t DROP col;</span><span class="cmd-desc">drop column</span></div>
+      <div class="cmd"><span class="cmd-code red">CREATE INDEX ON t(col);</span><span class="cmd-desc">create index</span></div>
+    </div>
+  </div>
+
+  <!-- DML -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-dot dot-green"></div>
+      <span class="card-title">DML</span>
+    </div>
+    <div class="card-body">
+      <div class="cmd"><span class="cmd-code">INSERT INTO t VALUES (...);</span><span class="cmd-desc">insert row</span></div>
+      <div class="cmd"><span class="cmd-code">INSERT ... ON CONFLICT DO ...</span><span class="cmd-desc">upsert</span></div>
+      <div class="cmd"><span class="cmd-code">UPDATE t SET c=v WHERE ...;</span><span class="cmd-desc">update rows</span></div>
+      <div class="cmd"><span class="cmd-code">DELETE FROM t WHERE ...;</span><span class="cmd-desc">delete rows</span></div>
+      <div class="cmd"><span class="cmd-code">SELECT * FROM t LIMIT 10;</span><span class="cmd-desc">query rows</span></div>
+      <div class="cmd"><span class="cmd-code">EXPLAIN ANALYZE SELECT ...;</span><span class="cmd-desc">query plan + timing</span></div>
+    </div>
+  </div>
+
+  <!-- Transactions -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-dot dot-blue"></div>
+      <span class="card-title">Transactions</span>
+    </div>
+    <div class="card-body">
+      <div class="cmd"><span class="cmd-code blue">BEGIN;</span><span class="cmd-desc">start transaction</span></div>
+      <div class="cmd"><span class="cmd-code blue">COMMIT;</span><span class="cmd-desc">commit transaction</span></div>
+      <div class="cmd"><span class="cmd-code blue">ROLLBACK;</span><span class="cmd-desc">roll back transaction</span></div>
+      <div class="cmd"><span class="cmd-code blue">SAVEPOINT sp;</span><span class="cmd-desc">create savepoint</span></div>
+      <div class="cmd"><span class="cmd-code blue">ROLLBACK TO sp;</span><span class="cmd-desc">roll back to savepoint</span></div>
+      <div class="cmd"><span class="cmd-code blue">RELEASE SAVEPOINT sp;</span><span class="cmd-desc">release savepoint</span></div>
+    </div>
+  </div>
+
+  <!-- Roles & Permissions -->
+  <div class="card col-span-2">
+    <div class="card-header">
+      <div class="card-dot dot-red"></div>
+      <span class="card-title">Roles &amp; Permissions</span>
+    </div>
+    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+      <div>
+        <div class="cmd"><span class="cmd-code red">CREATE USER u WITH PASSWORD 'p';</span><span class="cmd-desc">create user</span></div>
+        <div class="cmd"><span class="cmd-code red">CREATE ROLE r;</span><span class="cmd-desc">create role</span></div>
+        <div class="cmd"><span class="cmd-code red">GRANT r TO u;</span><span class="cmd-desc">grant role to user</span></div>
+        <div class="cmd"><span class="cmd-code red">REVOKE r FROM u;</span><span class="cmd-desc">revoke role</span></div>
+      </div>
+      <div>
+        <div class="cmd"><span class="cmd-code red">GRANT SELECT ON t TO u;</span><span class="cmd-desc">grant table privilege</span></div>
+        <div class="cmd"><span class="cmd-code red">GRANT ALL ON ALL TABLES TO u;</span><span class="cmd-desc">grant all on all tables</span></div>
+        <div class="cmd"><span class="cmd-code red">REVOKE ALL ON t FROM u;</span><span class="cmd-desc">revoke table privilege</span></div>
+        <div class="cmd"><span class="cmd-code red">DROP USER u;</span><span class="cmd-desc">drop user</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Useful Queries -->
+  <div class="card col-span-3">
+    <div class="card-header">
+      <div class="card-dot dot-orange"></div>
+      <span class="card-title">Useful System Queries</span>
+    </div>
+    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0">
+      <div>
+        <div class="cmd"><span class="cmd-code orange" style="font-size:11px">SELECT version();</span><span class="cmd-desc">postgres version</span></div>
+        <div class="cmd"><span class="cmd-code orange" style="font-size:11px">SELECT current_database();</span><span class="cmd-desc">current db name</span></div>
+        <div class="cmd"><span class="cmd-code orange" style="font-size:11px">SELECT current_user;</span><span class="cmd-desc">current user</span></div>
+        <div class="cmd"><span class="cmd-code orange" style="font-size:11px">SELECT now();</span><span class="cmd-desc">current timestamp</span></div>
+      </div>
+      <div>
+        <div class="cmd"><span class="cmd-code orange" style="font-size:11px">SELECT * FROM pg_stat_activity;</span><span class="cmd-desc">active connections</span></div>
+        <div class="cmd"><span class="cmd-code orange" style="font-size:11px">SELECT * FROM pg_locks;</span><span class="cmd-desc">current locks</span></div>
+        <div class="cmd"><span class="cmd-code orange" style="font-size:11px">SELECT * FROM pg_stat_user_tables;</span><span class="cmd-desc">table stats</span></div>
+      </div>
+      <div>
+        <div class="cmd"><span class="cmd-code orange" style="font-size:11px">SELECT pg_size_pretty(pg_database_size('db'));</span><span class="cmd-desc">db size</span></div>
+        <div class="cmd"><span class="cmd-code orange" style="font-size:11px">SELECT pg_size_pretty(pg_total_relation_size('t'));</span><span class="cmd-desc">table size incl. indexes</span></div>
+        <div class="cmd"><span class="cmd-code orange" style="font-size:11px">SELECT * FROM pg_indexes WHERE tablename='t';</span><span class="cmd-desc">indexes on table</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-tip">Append + to most \d commands for verbose output &nbsp;·&nbsp; Use \? for full psql help &nbsp;·&nbsp; Use \h CMD for SQL syntax help</div>
+  <div style="color:#3d4460">psql cheatsheet</div>
+</div>
+
+</body>
+</html>
