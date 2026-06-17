@@ -49,7 +49,7 @@ grade_tracker/
 
 ## Module 1 Tasks — Git & GitHub
 
-### Task 1.1 — Configure Git (5 marks)
+### Task 1.1 — Configure Git
 
 Open your terminal and set your identity:
 
@@ -68,7 +68,7 @@ git config --list
 
 ---
 
-### Task 1.2 — Initialise Your Repository (10 marks)
+### Task 1.2 — Initialise Your Repository
 
 1. Create a project folder named `grade_tracker`
 2. Navigate into it and initialise a Git repository:
@@ -101,7 +101,7 @@ git commit -m "Initial commit: add README and .gitignore"
 
 ---
 
-### Task 1.3 — Build Commit History (15 marks)
+### Task 1.3 — Build Commit History
 
 As you complete Module 2 (SQL tasks), make one commit after each SQL file you create.
 Use clear, descriptive commit messages following the examples below:
@@ -120,7 +120,7 @@ Use clear, descriptive commit messages following the examples below:
 
 ---
 
-### Task 1.4 — Push to GitHub (10 marks)
+### Task 1.4 — Push to GitHub
 
 Use the GitHub CLI to create a public repository and push your project:
 
@@ -143,7 +143,7 @@ git remote -v
 
 ---
 
-### Task 1.5 — Bonus: Branching (10 bonus marks)
+### Task 1.5 — Bonus: Branching
 
 Create a feature branch, make a change, and merge it back to `main`:
 
@@ -167,7 +167,7 @@ git push
 
 ## Module 2 Tasks — SQL & PostgreSQL
 
-### Task 2.1 — Create the Database and Tables (15 marks)
+### Task 2.1 — Create the Database and Tables
 
 Inside `sql/01_create.sql`, write SQL to:
 
@@ -203,7 +203,7 @@ psql -U postgres -f sql/01_create.sql
 
 ---
 
-### Task 2.2 — Insert Sample Data (10 marks)
+### Task 2.2 — Insert Sample Data
 
 Inside `sql/02_insert.sql`, insert:
 
@@ -216,7 +216,7 @@ Use both single-row and multi-row `INSERT` syntax to demonstrate both approaches
 
 ---
 
-### Task 2.3 — Query the Data (20 marks)
+### Task 2.3 — Query the Data
 
 Inside `sql/03_query.sql`, write the following queries (add a comment above each one explaining what it does):
 
@@ -232,7 +232,7 @@ Inside `sql/03_query.sql`, write the following queries (add a comment above each
 
 ---
 
-### Task 2.4 — Update and Delete Records (10 marks)
+### Task 2.4 — Update and Delete Records
 
 Inside `sql/04_update_delete.sql`:
 
